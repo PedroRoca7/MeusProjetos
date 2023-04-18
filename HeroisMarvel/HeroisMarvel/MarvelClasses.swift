@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct MarvelInfo: Codable{
+struct MarvelInfo: Codable {
     let code: Int
     let status: String
     let data: MarvelData
 }
 
-struct MarvelData: Codable{
+struct MarvelData: Codable {
     let offset: Int
     let limit: Int
     let total: Int
@@ -22,7 +22,7 @@ struct MarvelData: Codable{
     let results: [Hero]
 }
 
-struct Hero: Codable{
+struct Hero: Codable {
     let id: Int
     let name: String
     let description: String
@@ -30,7 +30,7 @@ struct Hero: Codable{
     let urls: [HeroURL]
 }
 
-struct Thumbnail: Codable{
+struct Thumbnail: Codable {
     let path: String
     let ext: String
     
@@ -44,7 +44,7 @@ struct Thumbnail: Codable{
     }
 }
 
-struct HeroURL: Codable{
+struct HeroURL: Codable {
     let type: String
     let url: String
 }

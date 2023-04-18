@@ -30,14 +30,14 @@ class MarvelAPI{
         let url = basePath + "offset=\(offset)&limit=\(limit)&" + startWith + getCredentials()
         print(url)
         
-        AF.request(url).responseJSON { (response) in
-            guard let data = response.data, let marvelInfo = try? JSONDecoder().decode(MarvelInfo.self, from: data), marvelInfo.code == 200 else {
-                onComplete(nil)
-                return
-                
+        AF.request(url).responseDecodable(of: MarvelInfo.self) { (response) in
+            switch response.result {
+                case let .success(data):
+                    onComplete(data)
+                case .failure:
+                    onComplete(nil)
             }
-            onComplete(marvelInfo)
-        }
+         }
         
     }
     
