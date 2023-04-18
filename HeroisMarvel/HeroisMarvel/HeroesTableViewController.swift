@@ -18,7 +18,6 @@ class HeroesTableViewController: UITableViewController {
         label.textColor = .white
         return label
     }()
-    
     var loadingHeroes: Bool = false
     var currentPage: Int = 0
     var total = 0
@@ -42,7 +41,6 @@ class HeroesTableViewController: UITableViewController {
         MarvelAPI.loadHeros(name: name, page: currentPage) { (info) in
             if let info = info {
                 self.heroes += info.data.results
-                //self.nameHeroes += info.data.results
                 self.total = info.data.total
                 print("Total:", self.total,"Já incluidos:",self.heroes.count)
                 DispatchQueue.main.async {
