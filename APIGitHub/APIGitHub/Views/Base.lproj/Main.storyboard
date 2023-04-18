@@ -95,6 +95,7 @@
                                     <outlet property="lbNameAuthor" destination="hyy-DL-PiN" id="Qpt-sG-s9i"/>
                                     <outlet property="lbRepositories" destination="5oM-je-z7w" id="sXX-UC-sDF"/>
                                     <outlet property="lbStars" destination="hHp-vx-iIC" id="AEC-HM-KOx"/>
+                                    <segue destination="u6W-9x-jmA" kind="show" id="69u-dx-bSe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,15 +119,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZ7-Fh-w4u">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-fs-038">
-                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-fs-038">
+                                <rect key="frame" x="197" y="380" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SRv-Lh-Sdm"/>
@@ -140,6 +142,7 @@
                             <constraint firstItem="8fb-fs-038" firstAttribute="centerX" secondItem="uZ7-Fh-w4u" secondAttribute="centerX" id="cOe-Nc-Ky6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JAa-KT-riM"/>
                     <connections>
                         <outlet property="loading" destination="8fb-fs-038" id="7vw-87-8cs"/>
                         <outlet property="webView" destination="uZ7-Fh-w4u" id="Wto-3G-3Zm"/>

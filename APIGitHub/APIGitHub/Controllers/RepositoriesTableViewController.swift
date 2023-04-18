@@ -57,7 +57,12 @@ class RepositoriesTableViewController: UITableViewController {
         tableView.backgroundView = repositories.count == 0 ? label : nil
         return repositories.count
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! RepositoryViewController
+        vc.repository = repositories[tableView.indexPathForSelectedRow!.row]
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RepositorieTableViewCell
 
