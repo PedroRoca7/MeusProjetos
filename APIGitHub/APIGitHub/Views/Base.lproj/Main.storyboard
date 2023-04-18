@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RSi-Al-fRq">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +13,7 @@
             <objects>
                 <tableViewController id="1bp-Ce-JCq" customClass="RepositoriesTableViewController" customModule="APIGitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="39C-AY-n7b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="hzj-EY-amU">
@@ -33,33 +34,33 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="144" id="QeD-VE-VFr" customClass="RepositorieTableViewCell" customModule="APIGitHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="182.5" width="414" height="144"/>
+                                <rect key="frame" x="0.0" y="182.66666603088379" width="414" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QeD-VE-VFr" id="1k2-eJ-wKr">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRr-y5-USw">
-                                            <rect key="frame" x="10" y="40.5" width="95" height="78.5"/>
+                                            <rect key="frame" x="10" y="40.666666666666664" width="95" height="78.333333333333343"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="95" id="Cxg-8L-ECi"/>
                                                 <constraint firstAttribute="height" constant="78.5" id="gfS-i0-zmZ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Repositório:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5oM-je-z7w">
-                                            <rect key="frame" x="10" y="10" width="394" height="20.5"/>
+                                            <rect key="frame" x="10" y="10.000000000000002" width="394" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Autor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyy-DL-PiN">
-                                            <rect key="frame" x="115" y="69.5" width="269" height="21"/>
+                                            <rect key="frame" x="115" y="69.333333333333329" width="269" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estrelas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHp-vx-iIC">
-                                            <rect key="frame" x="153" y="40" width="231" height="21"/>
+                                            <rect key="frame" x="153" y="39.666666666666664" width="231" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -108,12 +109,52 @@
             </objects>
             <point key="canvasLocation" x="565.21739130434787" y="66.964285714285708"/>
         </scene>
+        <!--Repository View Controller-->
+        <scene sceneID="aVQ-ZA-h4H">
+            <objects>
+                <viewController id="u6W-9x-jmA" customClass="RepositoryViewController" customModule="APIGitHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2aL-NN-xqD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZ7-Fh-w4u">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-fs-038">
+                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SRv-Lh-Sdm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uZ7-Fh-w4u" firstAttribute="trailing" secondItem="SRv-Lh-Sdm" secondAttribute="trailing" id="6Ch-6b-85N"/>
+                            <constraint firstItem="uZ7-Fh-w4u" firstAttribute="leading" secondItem="SRv-Lh-Sdm" secondAttribute="leading" id="9kv-Yq-teB"/>
+                            <constraint firstItem="uZ7-Fh-w4u" firstAttribute="top" secondItem="SRv-Lh-Sdm" secondAttribute="top" id="Auo-f2-amH"/>
+                            <constraint firstItem="uZ7-Fh-w4u" firstAttribute="bottom" secondItem="SRv-Lh-Sdm" secondAttribute="bottom" id="GPV-k0-Zsn"/>
+                            <constraint firstItem="8fb-fs-038" firstAttribute="centerY" secondItem="uZ7-Fh-w4u" secondAttribute="centerY" id="bzk-T0-sW5"/>
+                            <constraint firstItem="8fb-fs-038" firstAttribute="centerX" secondItem="uZ7-Fh-w4u" secondAttribute="centerX" id="cOe-Nc-Ky6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loading" destination="8fb-fs-038" id="7vw-87-8cs"/>
+                        <outlet property="webView" destination="uZ7-Fh-w4u" id="Wto-3G-3Zm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uud-aE-mCH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286.9565217391305" y="66.84782608695653"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YP8-XO-EQi">
             <objects>
                 <navigationController id="RSi-Al-fRq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b6l-fv-goL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		458EA209C8421E4CE14425AE /* Pods_APIGitHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE0D38053098F1EF91C9CAE /* Pods_APIGitHubTests.framework */; };
 		6E52C9AB1AD0F2C49FA66F10 /* Pods_APIGitHub_APIGitHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4494750F071F83012EE4988B /* Pods_APIGitHub_APIGitHubUITests.framework */; };
+		CE19ED0E29EF220100026E6D /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19ED0D29EF220100026E6D /* RepositoryViewController.swift */; };
 		CE1B399329E8ACFF00A11404 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B399229E8ACFF00A11404 /* Int+Extensions.swift */; };
 		CEDB7F8529E5E3160087F5E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB7F8429E5E3160087F5E4 /* AppDelegate.swift */; };
 		CEDB7F8729E5E3160087F5E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDB7F8629E5E3160087F5E4 /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 		65C44F18D418C3948BB98A2A /* Pods-APIGitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIGitHub.release.xcconfig"; path = "Target Support Files/Pods-APIGitHub/Pods-APIGitHub.release.xcconfig"; sourceTree = "<group>"; };
 		7360FF1A03F7B0964230301A /* Pods-APIGitHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIGitHubTests.debug.xcconfig"; path = "Target Support Files/Pods-APIGitHubTests/Pods-APIGitHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFE0D38053098F1EF91C9CAE /* Pods_APIGitHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIGitHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE19ED0D29EF220100026E6D /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		CE1B399229E8ACFF00A11404 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		CEDB7F8129E5E3160087F5E4 /* APIGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDB7F8429E5E3160087F5E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				CEDB7FB429E5E9250087F5E4 /* RepositoriesTableViewController.swift */,
 				CEDB7FC129E6420A0087F5E4 /* RepositorieTableViewCell.swift */,
+				CE19ED0D29EF220100026E6D /* RepositoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE19ED0E29EF220100026E6D /* RepositoryViewController.swift in Sources */,
 				CEDB7F8529E5E3160087F5E4 /* AppDelegate.swift in Sources */,
 				CEDB7FC229E6420A0087F5E4 /* RepositorieTableViewCell.swift in Sources */,
 				CEDB7F8729E5E3160087F5E4 /* SceneDelegate.swift in Sources */,

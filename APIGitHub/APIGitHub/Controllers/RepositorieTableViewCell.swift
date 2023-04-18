@@ -23,7 +23,7 @@ class RepositorieTableViewCell: UITableViewCell {
         lbStars.text = "Estrelas: \(repos.watchers.formatNumber())"
         lbRepositories.text = "Repositórios: \(repos.name)"
         lbNameAuthor.text = "Autor: \(repos.owner.login)"
-        if let url = URL(string: repos.owner.avatar_url){
+        if let url = URL(string: repos.owner.avatarUrl){
             ivAvatar.kf.indicatorType = .activity
             ivAvatar.kf.setImage(with: url)
         } else {

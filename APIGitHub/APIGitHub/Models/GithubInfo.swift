@@ -9,18 +9,38 @@ import Foundation
 
 
 struct RepositoriesGitHub: Codable {
-    let total_count: Int
-    let incomplete_results: Bool
+    let totalCount: Int
+    let incompleteResults: Bool
     let items: [Repository]
+
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+        case incompleteResults = "incomplete_results"
+        case items
+    }
+    
 }
 
-struct Repository: Codable{
+struct Repository: Codable {
     let name: String
     let owner: Profile
+    let htmlUrl: String
     let watchers: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case owner
+        case htmlUrl = "html_url"
+        case watchers
+    }
 }
 
-struct Profile: Codable{
+struct Profile: Codable {
     let login: String
-    let avatar_url: String
+    let avatarUrl: String
+    
+    enum CodingKeys: String, CodingKey {
+        case login
+        case avatarUrl = "avatar_url"
+    }
 }

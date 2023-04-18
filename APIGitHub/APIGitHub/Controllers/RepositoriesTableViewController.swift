@@ -38,7 +38,7 @@ class RepositoriesTableViewController: UITableViewController {
             
             if let result = result {
                 self.repositories += result.items
-                self.total = result.total_count
+                self.total = result.totalCount
                 print("Total:", self.total, "Já incluidos", self.repositories.count)
                 DispatchQueue.main.async {
                     self.label.text = "Não foram encontrados repositórios"
