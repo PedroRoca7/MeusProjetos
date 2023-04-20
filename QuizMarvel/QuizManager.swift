@@ -1772,6 +1772,8 @@ class QuizManager {
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
     
+    
+    
     var totalAnswers: Int {
         return _totalAnswers
     }
@@ -1790,8 +1792,23 @@ class QuizManager {
 
 
     func refreshQuiz() {
-        let randomIndex = Int(arc4random_uniform(UInt32(namesPerson.count)))
-        let quizData = namesPerson[randomIndex]
+        var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        if namesPerson[randomIndex1] == heroes[0].name{
+            randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        }
+        var randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        if randomIndex1 == randomIndex2{
+            randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        }
+        var randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        if randomIndex3 == randomIndex2 || randomIndex3 == randomIndex1 {
+            randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        }
+        let quizData = namesPerson[randomIndex1]
+        
+        //fazer um array e armazenar os nomes dos 3 personagens sorteados.
+        
+        Quiz.init(image: heroes[0].thumbnail.url, options: <#T##[String]#>, correctedAnswer: <#T##String#>)
     }
 
 }
