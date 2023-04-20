@@ -10,7 +10,7 @@ import Foundation
 class Quiz {
     let image: String
     let options: [String]
-    private let correctedAnswer: String
+    let correctedAnswer: String
     
     init(image: String, options: [String], correctedAnswer: String) {
         self.image = image
@@ -18,7 +18,7 @@ class Quiz {
         self.correctedAnswer = correctedAnswer
     }
 
-    func validadeOption(_ optionSelected: String) -> Bool {
+    func validadeOption(optionSelected: String) -> Bool {
         let answer = optionSelected
         return answer == correctedAnswer
     }

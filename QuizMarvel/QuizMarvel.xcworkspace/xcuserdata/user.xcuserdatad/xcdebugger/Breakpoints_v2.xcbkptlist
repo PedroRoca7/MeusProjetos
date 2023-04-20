@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "052EF6CF-63DF-4F00-B0F1-2734025A4355"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "806A9883-624A-4CC3-9552-6353471EE367"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1788"
+            endingLineNumber = "1788"
+            landmarkName = "loadHeros()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "806A9883-624A-4CC3-9552-6353471EE367 - 297a2eb839421410"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;QuizMarvel.MarvelInfo&gt;) -&gt; () in QuizMarvel.QuizManager.loadHeros() -&gt; ()"
+                  moduleName = "QuizMarvel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/MeusProjetos/MeusProjetos/QuizMarvel/QuizManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1788"
+                  endingLineNumber = "1788"
+                  offsetFromSymbolStart = "203">
+               </Location>
+               <Location
+                  uuid = "806A9883-624A-4CC3-9552-6353471EE367 - 297a2eb839421410"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;QuizMarvel.MarvelInfo&gt;) -&gt; () in QuizMarvel.QuizManager.loadHeros() -&gt; ()"
+                  moduleName = "QuizMarvel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/MeusProjetos/MeusProjetos/QuizMarvel/QuizManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1788"
+                  endingLineNumber = "1788"
+                  offsetFromSymbolStart = "237">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E074DCB4-2501-486E-8673-76A15CC9F1C0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuizManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1787"
+            endingLineNumber = "1787"
+            landmarkName = "loadHeros()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E77B58A2-536C-4243-8E77-CF5C42441219"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarvelAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "loadHeros(name:onComplete:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -31,7 +31,7 @@ class RepositoriesTableViewController: UITableViewController {
 
     // MARK: - Private method
     
-    private func loadRepositories(){
+    private func loadRepositories() {
         loadingRepos = true
         APIGithub.loadRepositories(page: currentPage) { [weak self] result in
             guard let self = self else { return }

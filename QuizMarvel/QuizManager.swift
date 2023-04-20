@@ -1768,10 +1768,10 @@ class QuizManager {
                                  "Zzzax",
     ]
     
-    private var quiz: Quiz!
+    var quiz: Quiz!
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
-    
+    private var options: [String] = []
     
     
     var totalAnswers: Int {
@@ -1782,9 +1782,16 @@ class QuizManager {
     }
     
     func loadHeros() {
-        MarvelAPI.loadHeros { result in
+        let numberSort = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        let nameSort = namesPerson[numberSort]
+        MarvelAPI.loadHeros(name: nameSort) { result in
             if let result = result {
                 self.heroes = result.data.results
+                print("Total:", result.data.total)
+                DispatchQueue.main.async {
+                    self.refreshQuiz()
+                }
+            
             }
         }
     }
@@ -1792,23 +1799,38 @@ class QuizManager {
 
 
     func refreshQuiz() {
+        
+        //loadHeros()
+        
         var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-        if namesPerson[randomIndex1] == heroes[0].name{
+        
+        if namesPerson[randomIndex1] == heroes[0].name {
             randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
         var randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-        if randomIndex1 == randomIndex2{
+        
+        if randomIndex1 == randomIndex2 {
             randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
         var randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        
         if randomIndex3 == randomIndex2 || randomIndex3 == randomIndex1 {
             randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
-        let quizData = namesPerson[randomIndex1]
         
-        //fazer um array e armazenar os nomes dos 3 personagens sorteados.
+        options.append(namesPerson[randomIndex1])
+        options.append(namesPerson[randomIndex2])
+        options.append(namesPerson[randomIndex3])
         
-        Quiz.init(image: heroes[0].thumbnail.url, options: <#T##[String]#>, correctedAnswer: <#T##String#>)
+        let name = heroes[0].name
+        
+        quiz = Quiz.init(image: heroes[0].thumbnail.url, options: options, correctedAnswer: name)
     }
 
+    func validadeAnswer(name: String) {
+        _totalAnswers += 1
+        if quiz.validadeOption(optionSelected: name) {
+            _totalCorrectAnswers += 1
+        }
+    }
 }
