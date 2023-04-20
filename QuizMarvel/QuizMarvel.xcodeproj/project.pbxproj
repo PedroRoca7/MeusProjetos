@@ -19,6 +19,12 @@
 		CE65E6E529F067D8003ADBA3 /* QuizMarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E6E429F067D8003ADBA3 /* QuizMarvelTests.swift */; };
 		CE65E6EF29F067D9003ADBA3 /* QuizMarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E6EE29F067D9003ADBA3 /* QuizMarvelUITests.swift */; };
 		CE65E6F129F067D9003ADBA3 /* QuizMarvelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E6F029F067D9003ADBA3 /* QuizMarvelUITestsLaunchTests.swift */; };
+		CE65E70329F0816F003ADBA3 /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E70229F0816F003ADBA3 /* MarvelAPI.swift */; };
+		CE65E70529F0817F003ADBA3 /* MarvelClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E70429F0817F003ADBA3 /* MarvelClasses.swift */; };
+		CE65E70729F0886B003ADBA3 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E70629F0886B003ADBA3 /* QuizManager.swift */; };
+		CE65E70929F09080003ADBA3 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E70829F09080003ADBA3 /* QuizViewController.swift */; };
+		CE65E70B29F090B8003ADBA3 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E70A29F090B8003ADBA3 /* ResultViewController.swift */; };
+		CE65E70D29F098A5003ADBA3 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E70C29F098A4003ADBA3 /* Quiz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,12 @@
 		CE65E6EA29F067D9003ADBA3 /* QuizMarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE65E6EE29F067D9003ADBA3 /* QuizMarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMarvelUITests.swift; sourceTree = "<group>"; };
 		CE65E6F029F067D9003ADBA3 /* QuizMarvelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMarvelUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE65E70229F0816F003ADBA3 /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
+		CE65E70429F0817F003ADBA3 /* MarvelClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelClasses.swift; sourceTree = "<group>"; };
+		CE65E70629F0886B003ADBA3 /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
+		CE65E70829F09080003ADBA3 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuizViewController.swift; path = QuizMarvel/Controllers/QuizViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE65E70A29F090B8003ADBA3 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultViewController.swift; path = QuizMarvel/Controllers/ResultViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE65E70C29F098A4003ADBA3 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		D4FB683745473895C3C20BF1 /* Pods-QuizMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizMarvel.debug.xcconfig"; path = "Target Support Files/Pods-QuizMarvel/Pods-QuizMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,12 +151,11 @@
 		CE65E6CC29F067D3003ADBA3 /* QuizMarvel */ = {
 			isa = PBXGroup;
 			children = (
-				CE65E6CD29F067D3003ADBA3 /* AppDelegate.swift */,
-				CE65E6CF29F067D3003ADBA3 /* SceneDelegate.swift */,
-				CE65E6D129F067D3003ADBA3 /* ViewController.swift */,
-				CE65E6D329F067D3003ADBA3 /* Main.storyboard */,
+				CE65E6FF29F0809E003ADBA3 /* Delegates */,
+				CE65E70129F080ED003ADBA3 /* Models */,
+				CE65E6FE29F08087003ADBA3 /* Controllers */,
+				CE65E6FD29F0807C003ADBA3 /* Views */,
 				CE65E6D629F067D8003ADBA3 /* Assets.xcassets */,
-				CE65E6D829F067D8003ADBA3 /* LaunchScreen.storyboard */,
 				CE65E6DB29F067D8003ADBA3 /* Info.plist */,
 			);
 			path = QuizMarvel;
@@ -165,6 +176,46 @@
 				CE65E6F029F067D9003ADBA3 /* QuizMarvelUITestsLaunchTests.swift */,
 			);
 			path = QuizMarvelUITests;
+			sourceTree = "<group>";
+		};
+		CE65E6FD29F0807C003ADBA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE65E6D329F067D3003ADBA3 /* Main.storyboard */,
+				CE65E6D829F067D8003ADBA3 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE65E6FE29F08087003ADBA3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE65E6D129F067D3003ADBA3 /* ViewController.swift */,
+				CE65E70829F09080003ADBA3 /* QuizViewController.swift */,
+				CE65E70A29F090B8003ADBA3 /* ResultViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE65E6FF29F0809E003ADBA3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CE65E6CD29F067D3003ADBA3 /* AppDelegate.swift */,
+				CE65E6CF29F067D3003ADBA3 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		CE65E70129F080ED003ADBA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE65E70229F0816F003ADBA3 /* MarvelAPI.swift */,
+				CE65E70629F0886B003ADBA3 /* QuizManager.swift */,
+				CE65E70C29F098A4003ADBA3 /* Quiz.swift */,
+				CE65E70429F0817F003ADBA3 /* MarvelClasses.swift */,
+			);
+			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,9 +457,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE65E70529F0817F003ADBA3 /* MarvelClasses.swift in Sources */,
+				CE65E70929F09080003ADBA3 /* QuizViewController.swift in Sources */,
 				CE65E6D229F067D3003ADBA3 /* ViewController.swift in Sources */,
+				CE65E70B29F090B8003ADBA3 /* ResultViewController.swift in Sources */,
 				CE65E6CE29F067D3003ADBA3 /* AppDelegate.swift in Sources */,
 				CE65E6D029F067D3003ADBA3 /* SceneDelegate.swift in Sources */,
+				CE65E70729F0886B003ADBA3 /* QuizManager.swift in Sources */,
+				CE65E70329F0816F003ADBA3 /* MarvelAPI.swift in Sources */,
+				CE65E70D29F098A5003ADBA3 /* Quiz.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
