@@ -1788,10 +1788,6 @@ class QuizManager {
             if let result = result {
                 self.heroes = result.data.results
                 print("Total:", result.data.total)
-                DispatchQueue.main.async {
-                    self.refreshQuiz()
-                }
-            
             }
         }
     }
@@ -1800,8 +1796,7 @@ class QuizManager {
 
     func refreshQuiz() {
         
-        //loadHeros()
-        
+        loadHeros()
         var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         
         if namesPerson[randomIndex1] == heroes[0].name {
@@ -1825,6 +1820,7 @@ class QuizManager {
         let name = heroes[0].name
         
         quiz = Quiz.init(image: heroes[0].thumbnail.url, options: options, correctedAnswer: name)
+
     }
 
     func validadeAnswer(name: String) {

@@ -21,7 +21,7 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //loadHeros()
+        
         
     }
 
@@ -34,34 +34,35 @@ class QuizViewController: UIViewController {
         } completion: { success in
             self.showResults()
         }
-        quizManager.loadHeros()
-        //getNewQuiz()
+        getNewQuiz()
+        
     }
         
-//    func getNewQuiz() {
-//        quizManager.loadHeros()
-//        if let url = URL(string: hero.thumbnail.url) {
-//            PersonImageView.kf.setImage(with: url)
-//        } else {
-//            PersonImageView.image = nil
-//        }
-//        for i in 0..<quizManager.quiz.options.count {
-//            let option = quizManager.quiz.options[i]
-//            let button = Answersbutton[i]
-//            button.setTitle(option, for: .normal)
-//
-//        }
-//        let button = Answersbutton[3]
-//        button.setTitle(quizManager.quiz.correctedAnswer, for: .normal)
-//    }
+    func getNewQuiz() {
+        quizManager.refreshQuiz()
+        if let url = URL(string: quizManager.quiz.image) {
+            PersonImageView.kf.setImage(with: url)
+        } else {
+            PersonImageView.image = nil
+        }
+        for i in 0..<quizManager.quiz.options.count {
+            let option = quizManager.quiz.options[i]
+            let button = Answersbutton[i]
+            button.setTitle(option, for: .normal)
+
+        }
+        let button = Answersbutton[3]
+        button.setTitle(quizManager.quiz.correctedAnswer, for: .normal)
+    }
     
     func showResults() {
         
     }
     
+    
     @IBAction func selectAnswer(_ sender: UIButton) {
-        let buttonSelected = sender.titleLabel?.text as! String
+        let buttonSelected = String(sender.title(for: .normal) ?? "")
         quizManager.validadeAnswer(name: buttonSelected)
-        //getNewQuiz()
+        getNewQuiz()
     }
 }
