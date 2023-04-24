@@ -17,7 +17,7 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var TimerView: UIView!
     
     let quizManager = QuizManager()
-    
+    let queue = DispatchQueue(label: "IOS")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +39,24 @@ class QuizViewController: UIViewController {
     }
         
     func getNewQuiz() {
-        quizManager.refreshQuiz()
-        if let url = URL(string: quizManager.quiz.image) {
-            PersonImageView.kf.setImage(with: url)
-        } else {
-            PersonImageView.image = nil
+       queue.sync {
+           quizManager.refreshQuiz()
+       }
+        
+        queue.sync{
+            if let url = URL(string: quizManager.quiz.image) {
+                PersonImageView.kf.setImage(with: url)
+            } else {
+                PersonImageView.image = nil
+            }
+            for i in 0..<quizManager.quiz.options.count {
+                let option = quizManager.quiz.options[i]
+                let button = Answersbutton[i]
+                button.setTitle(option, for: .normal)
+            }
+            let button = Answersbutton[3]
+            button.setTitle(quizManager.quiz.correctedAnswer, for: .normal)
         }
-        for i in 0..<quizManager.quiz.options.count {
-            let option = quizManager.quiz.options[i]
-            let button = Answersbutton[i]
-            button.setTitle(option, for: .normal)
-
-        }
-        let button = Answersbutton[3]
-        button.setTitle(quizManager.quiz.correctedAnswer, for: .normal)
     }
     
     func showResults() {
