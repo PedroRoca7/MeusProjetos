@@ -1768,6 +1768,7 @@ class QuizManager {
                                  "Zzzax",
     ]
     
+    
     var quiz: Quiz!
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
@@ -1788,7 +1789,7 @@ class QuizManager {
         
             let numberSort = Int(arc4random_uniform(UInt32(namesPerson.count)))
             let nameSort = namesPerson[numberSort]
-            MarvelAPI.loadHeros(name: "Invisible Woman") { result in
+            MarvelAPI.loadHeros(name: nameSort) { result in
                 if let result = result {
                     self.heroes = result.data.results
                     guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
@@ -1796,15 +1797,14 @@ class QuizManager {
                     self.thumbnail = thumbnail
                     print("Total:", result.data.total)
                     self.refreshQuiz()
-                    
-                    if self.validadeImageNotFound(result) {
+                    if self.validadeImageNotFound(){
                         self.loadHeros { result in
                             if let result = result {
                                 self.heroes = result.data.results
                                 guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
                                 self.name = name
                                 self.thumbnail = thumbnail
-                                
+                                onComplete(result)
                             }
                         }
                     }
@@ -1818,7 +1818,7 @@ class QuizManager {
     }
  
     private func refreshQuiz() {
-        
+        options.removeAll()
         var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
 
         if namesPerson[randomIndex1] == name {
@@ -1841,12 +1841,13 @@ class QuizManager {
         options.append(namesPerson[randomIndex3])
         options.append(name)
         options.sort()
+        print(options)
         
         quiz = Quiz.init(image: thumbnail, options: options, correctedAnswer: name)
     }
 
     
-    private func validadeImageNotFound(_ data: MarvelInfo) -> Bool {
+     private func validadeImageNotFound() -> Bool {
         
         return thumbnail == urlTest
     }
@@ -1859,3 +1860,4 @@ class QuizManager {
         }
     }
 }
+

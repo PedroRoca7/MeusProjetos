@@ -36,7 +36,7 @@ class QuizViewController: UIViewController {
         DispatchQueue.main.async {
             self.quizManager.loadHeros(onComplete: { result in
                 if let result = result {
-                    self.configureScreen()
+                    self.configureScreen(result)
                 }
             })
         }
@@ -47,14 +47,15 @@ class QuizViewController: UIViewController {
         
     }
     
-    func configureScreen() {
-        if let url = URL(string: quizManager.quiz.image) {
+    func configureScreen(_ result: MarvelInfo) {
+        guard let thumb = result.data.results.first?.thumbnail.url else { return }
+        if let url = URL(string: thumb) {
             personImageView.kf.indicatorType = .activity
             personImageView.kf.setImage(with: url)
         } else {
             personImageView.image = nil
         }
-        for i in 0..<4 {
+        for i in 0..<quizManager.quiz.options.count {
             let option = quizManager.quiz.options[i]
             let button = answersbutton[i]
             button.setTitle(option, for: .normal)
@@ -69,7 +70,6 @@ class QuizViewController: UIViewController {
     @IBAction func selectAnswer(_ sender: UIButton) {
         if let buttonSelected = sender.currentTitle{
         quizManager.validadeAnswer(name: buttonSelected)
-        quizManager.quiz.options.removeAll()
         getNewQuiz()
         }
     }
