@@ -1774,6 +1774,7 @@ class QuizManager {
     private var options: [String] = []
     let queue = DispatchQueue(label: "IOS")
     var name: String = ""
+    
     var thumbnail: String = ""
     
     var totalAnswers: Int {
@@ -1783,53 +1784,46 @@ class QuizManager {
         return _totalCorrectAnswers
     }
     
-    func loadHeros() {
+    func loadHeros(onComplete: @escaping (MarvelInfo?) -> Void) {
         
         let numberSort = Int(arc4random_uniform(UInt32(namesPerson.count)))
         let nameSort = namesPerson[numberSort]
         MarvelAPI.loadHeros(name: nameSort) { result in
             if let result = result {
                 self.heroes = result.data.results
-                self.name = result.data.results[0].name
-                self.thumbnail = result.data.results[0].thumbnail.url
+                guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
+                self.name = name
+                self.thumbnail = thumbnail
                 print("Total:", result.data.total)
+                self.refreshQuiz()
+                onComplete(result)
             }
         }
     }
  
-    func refreshQuiz() {
+    private func refreshQuiz() {
         
-        queue.sync {
-            loadHeros()
+        var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+
+        if namesPerson[randomIndex1] == name {
+            randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
+        var randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         
-        queue.sync {
-            
-            var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        if randomIndex1 == randomIndex2 {
+            randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
+        }
+        var randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
 
-            if namesPerson[randomIndex1] == name {
-                randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-            }
-            var randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-            
-            if randomIndex1 == randomIndex2 {
-                randomIndex2 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-            }
-            var randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-
-            if randomIndex3 == randomIndex2 || randomIndex3 == randomIndex1 {
-                randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
-            }
-
-            options.append(namesPerson[randomIndex1])
-            options.append(namesPerson[randomIndex2])
-            options.append(namesPerson[randomIndex3])
-
-            
-
-            quiz = Quiz.init(image: thumbnail, options: options, correctedAnswer: name)
+        if randomIndex3 == randomIndex2 || randomIndex3 == randomIndex1 {
+            randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
 
+        options.append(namesPerson[randomIndex1])
+        options.append(namesPerson[randomIndex2])
+        options.append(namesPerson[randomIndex3])
+
+        quiz = Quiz.init(image: thumbnail, options: options, correctedAnswer: name)
     }
 
     func validadeAnswer(name: String) {

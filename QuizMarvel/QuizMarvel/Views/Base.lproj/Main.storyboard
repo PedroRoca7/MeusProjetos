@@ -172,12 +172,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PersonImageView" destination="6Ml-JB-xQ8" id="g3y-nV-bNH"/>
-                        <outlet property="TimerView" destination="zNT-4s-pVJ" id="1bT-BM-RAV"/>
-                        <outletCollection property="Answersbutton" destination="UTY-t5-055" collectionClass="NSMutableArray" id="1d3-1q-7xk"/>
-                        <outletCollection property="Answersbutton" destination="XiN-ZG-foi" collectionClass="NSMutableArray" id="Pcu-Uf-O1W"/>
-                        <outletCollection property="Answersbutton" destination="GHJ-Er-hjd" collectionClass="NSMutableArray" id="DuI-z4-hwX"/>
-                        <outletCollection property="Answersbutton" destination="Uyd-Df-x0I" collectionClass="NSMutableArray" id="i1N-sS-LqF"/>
+                        <outlet property="personImageView" destination="6Ml-JB-xQ8" id="g3y-nV-bNH"/>
+                        <outlet property="timerView" destination="zNT-4s-pVJ" id="1bT-BM-RAV"/>
+                        <outletCollection property="answersbutton" destination="UTY-t5-055" collectionClass="NSMutableArray" id="1d3-1q-7xk"/>
+                        <outletCollection property="answersbutton" destination="XiN-ZG-foi" collectionClass="NSMutableArray" id="Pcu-Uf-O1W"/>
+                        <outletCollection property="answersbutton" destination="GHJ-Er-hjd" collectionClass="NSMutableArray" id="DuI-z4-hwX"/>
+                        <outletCollection property="answersbutton" destination="Uyd-Df-x0I" collectionClass="NSMutableArray" id="i1N-sS-LqF"/>
                         <segue destination="1Dc-mH-Akr" kind="show" id="RTY-fF-c6C"/>
                     </connections>
                 </viewController>
