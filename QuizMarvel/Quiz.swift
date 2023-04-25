@@ -9,7 +9,7 @@ import Foundation
 
 class Quiz {
     let image: String
-    let options: [String]
+    var options: [String]
     let correctedAnswer: String
     
     init(image: String, options: [String], correctedAnswer: String) {

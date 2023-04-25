@@ -1771,11 +1771,11 @@ class QuizManager {
     var quiz: Quiz!
     private var _totalAnswers = 0
     private var _totalCorrectAnswers = 0
-    private var options: [String] = []
+    var options: [String] = []
     let queue = DispatchQueue(label: "IOS")
     var name: String = ""
-    
-    var thumbnail: String = ""
+    let urlTest: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+    var thumbnail: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
     
     var totalAnswers: Int {
         return _totalAnswers
@@ -1786,19 +1786,35 @@ class QuizManager {
     
     func loadHeros(onComplete: @escaping (MarvelInfo?) -> Void) {
         
-        let numberSort = Int(arc4random_uniform(UInt32(namesPerson.count)))
-        let nameSort = namesPerson[numberSort]
-        MarvelAPI.loadHeros(name: nameSort) { result in
-            if let result = result {
-                self.heroes = result.data.results
-                guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
-                self.name = name
-                self.thumbnail = thumbnail
-                print("Total:", result.data.total)
-                self.refreshQuiz()
-                onComplete(result)
+            let numberSort = Int(arc4random_uniform(UInt32(namesPerson.count)))
+            let nameSort = namesPerson[numberSort]
+            MarvelAPI.loadHeros(name: "Invisible Woman") { result in
+                if let result = result {
+                    self.heroes = result.data.results
+                    guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
+                    self.name = name
+                    self.thumbnail = thumbnail
+                    print("Total:", result.data.total)
+                    self.refreshQuiz()
+                    
+                    if self.validadeImageNotFound(result) {
+                        self.loadHeros { result in
+                            if let result = result {
+                                self.heroes = result.data.results
+                                guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
+                                self.name = name
+                                self.thumbnail = thumbnail
+                                
+                            }
+                        }
+                    }
+                    if self.thumbnail != self.urlTest{
+                    onComplete(result)
+                    }
+                }
             }
-        }
+        
+       
     }
  
     private func refreshQuiz() {
@@ -1819,13 +1835,23 @@ class QuizManager {
             randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
 
+       
         options.append(namesPerson[randomIndex1])
         options.append(namesPerson[randomIndex2])
         options.append(namesPerson[randomIndex3])
-
+        options.append(name)
+        options.sort()
+        
         quiz = Quiz.init(image: thumbnail, options: options, correctedAnswer: name)
     }
 
+    
+    private func validadeImageNotFound(_ data: MarvelInfo) -> Bool {
+        
+        return thumbnail == urlTest
+    }
+    
+    
     func validadeAnswer(name: String) {
         _totalAnswers += 1
         if quiz.validadeOption(optionSelected: name) {

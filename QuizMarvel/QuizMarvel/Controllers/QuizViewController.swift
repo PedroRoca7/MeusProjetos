@@ -33,12 +33,15 @@ class QuizViewController: UIViewController {
     }
         
     func getNewQuiz() {
+        DispatchQueue.main.async {
+            self.quizManager.loadHeros(onComplete: { result in
+                if let result = result {
+                    self.configureScreen()
+                }
+            })
+        }
        
-        quizManager.loadHeros(onComplete: { result in
-            if let result = result {
-                self.configureScreen()
-            }
-        })
+        
        
 
         
@@ -46,17 +49,16 @@ class QuizViewController: UIViewController {
     
     func configureScreen() {
         if let url = URL(string: quizManager.quiz.image) {
+            personImageView.kf.indicatorType = .activity
             personImageView.kf.setImage(with: url)
         } else {
             personImageView.image = nil
         }
-        for i in 0..<quizManager.quiz.options.count {
+        for i in 0..<4 {
             let option = quizManager.quiz.options[i]
             let button = answersbutton[i]
             button.setTitle(option, for: .normal)
         }
-        let button = answersbutton[3]
-        button.setTitle(quizManager.quiz.correctedAnswer, for: .normal)
     }
     
     func showResults() {
@@ -65,8 +67,10 @@ class QuizViewController: UIViewController {
     
     
     @IBAction func selectAnswer(_ sender: UIButton) {
-        let buttonSelected = String(sender.title(for: .normal) ?? "")
+        if let buttonSelected = sender.currentTitle{
         quizManager.validadeAnswer(name: buttonSelected)
+        quizManager.quiz.options.removeAll()
         getNewQuiz()
+        }
     }
 }
