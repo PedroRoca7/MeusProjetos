@@ -30,7 +30,8 @@ class QuizViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         seconds = 10
-        
+        quizManager._totalAnswers = 0
+        quizManager._totalCorrectAnswers = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
         getNewQuiz()
         
