@@ -1770,13 +1770,12 @@ class QuizManager {
     
     
     var quiz: Quiz!
-    private var _totalAnswers = 0
-    private var _totalCorrectAnswers = 0
+    var _totalAnswers = 0
+    var _totalCorrectAnswers = 0
     var options: [String] = []
-    let queue = DispatchQueue(label: "IOS")
-    var name: String = ""
-    let urlTest: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
-    var thumbnail: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+    private var name: String = ""
+    private let urlTest: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+    private var thumbnail: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
     
     var totalAnswers: Int {
         return _totalAnswers

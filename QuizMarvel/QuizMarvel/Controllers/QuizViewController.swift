@@ -29,6 +29,7 @@ class QuizViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        seconds = 10
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
         getNewQuiz()
@@ -88,9 +89,15 @@ class QuizViewController: UIViewController {
     }
     
     func showResults() {
-        
+        performSegue(withIdentifier: "resultSegue", sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let resultViewcontroller = segue.destination as? ResultViewController{
+            resultViewcontroller.totalAnswers = quizManager.totalAnswers
+            resultViewcontroller.totalCorrectAnswers = quizManager.totalCorrectAnswers
+        }
+    }
     
     @IBAction func selectAnswer(_ sender: UIButton) {
         if let buttonSelected = sender.currentTitle{
