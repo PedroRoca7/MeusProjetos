@@ -16,6 +16,9 @@ class QuizViewController: UIViewController {
     @IBOutlet var answersbutton: [UIButton]!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
+    @IBOutlet weak var buttonsView: UIView!
+    
+    
     
     var seconds = 120
     var timer = Timer()
@@ -29,7 +32,19 @@ class QuizViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        seconds = 10
+        buttonsView.isHidden = true
+        timerSlider.isHidden = true
+        timeLabel.isHidden = true
+        let loader = self.loader()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.stopLoader(loader: loader)
+            self.buttonsView.isHidden = false
+            self.timerSlider.isHidden = false
+            self.timeLabel.isHidden = false
+        }
+        
+        seconds = 122
         quizManager._totalAnswers = 0
         quizManager._totalCorrectAnswers = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
@@ -107,3 +122,5 @@ class QuizViewController: UIViewController {
         }
     }
 }
+
+

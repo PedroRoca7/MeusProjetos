@@ -62,7 +62,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Ml-JB-xQ8">
                                 <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="380.66666666666663"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCT-E7-CRL">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCT-E7-CRL">
                                 <rect key="frame" x="349" y="10" width="55" height="38.333333333333336"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="DvO-8m-ifD"/>
@@ -71,14 +71,14 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="1am-27-MWH">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="1am-27-MWH">
                                 <rect key="frame" x="-2" y="14.333333333333336" width="346" height="31"/>
                                 <color key="tintColor" red="0.20736818900000001" green="0.76739024469999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="slider:" destination="9oZ-q3-VBs" eventType="valueChanged" id="b4Q-L7-tt6"/>
                                 </connections>
                             </slider>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzn-lY-OSO">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzn-lY-OSO">
                                 <rect key="frame" x="0.0" y="436" width="414" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTY-t5-055">
@@ -90,7 +90,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="selectAnswer:" destination="9oZ-q3-VBs" eventType="touchUpInside" id="7oC-qp-m3P"/>
                                         </connections>
@@ -104,7 +103,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="selectAnswer:" destination="9oZ-q3-VBs" eventType="touchUpInside" id="eeD-o3-EVA"/>
                                         </connections>
@@ -118,7 +116,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="selectAnswer:" destination="9oZ-q3-VBs" eventType="touchUpInside" id="92J-b2-4Nv"/>
                                         </connections>
@@ -132,7 +129,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="selectAnswer:" destination="9oZ-q3-VBs" eventType="touchUpInside" id="QE1-M5-Wsb"/>
                                         </connections>
@@ -174,6 +170,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonsView" destination="Yzn-lY-OSO" id="uxx-q5-1o8"/>
                         <outlet property="personImageView" destination="6Ml-JB-xQ8" id="g3y-nV-bNH"/>
                         <outlet property="timeLabel" destination="UCT-E7-CRL" id="CW2-zL-Z4M"/>
                         <outlet property="timerSlider" destination="1am-27-MWH" id="9zW-DS-uhc"/>
