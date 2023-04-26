@@ -61,22 +61,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Ml-JB-xQ8">
-                                <rect key="frame" x="0.0" y="57" width="414" height="379"/>
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="380.66666666666663"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNT-4s-pVJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                <color key="backgroundColor" red="1" green="0.28235294119999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCT-E7-CRL">
+                                <rect key="frame" x="349" y="10" width="55" height="38.333333333333336"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="Xkh-iz-zHb"/>
-                                    <constraint firstAttribute="height" constant="56" id="oEl-GU-jsc"/>
+                                    <constraint firstAttribute="width" constant="55" id="DvO-8m-ifD"/>
                                 </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tempo Restante:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCT-E7-CRL">
-                                <rect key="frame" x="10" y="20" width="109" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="1am-27-MWH">
+                                <rect key="frame" x="-2" y="14.333333333333336" width="346" height="31"/>
+                                <color key="tintColor" red="0.20736818900000001" green="0.76739024469999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="slider:" destination="9oZ-q3-VBs" eventType="valueChanged" id="b4Q-L7-tt6"/>
+                                </connections>
+                            </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzn-lY-OSO">
                                 <rect key="frame" x="0.0" y="436" width="414" height="300"/>
                                 <subviews>
@@ -159,21 +161,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Ml-JB-xQ8" firstAttribute="trailing" secondItem="fME-TC-ixb" secondAttribute="trailing" id="0hY-tf-P6N"/>
-                            <constraint firstItem="zNT-4s-pVJ" firstAttribute="leading" secondItem="fME-TC-ixb" secondAttribute="leading" id="4PR-7S-bDL"/>
                             <constraint firstItem="Yzn-lY-OSO" firstAttribute="top" secondItem="6Ml-JB-xQ8" secondAttribute="bottom" id="Ces-4p-3UK"/>
-                            <constraint firstItem="UCT-E7-CRL" firstAttribute="leading" secondItem="fME-TC-ixb" secondAttribute="leading" constant="10" id="O3c-eG-2Ti"/>
+                            <constraint firstItem="1am-27-MWH" firstAttribute="centerY" secondItem="UCT-E7-CRL" secondAttribute="centerY" id="Lx1-Hm-xEi"/>
+                            <constraint firstItem="1am-27-MWH" firstAttribute="leading" secondItem="fME-TC-ixb" secondAttribute="leading" id="MFL-X6-AoH"/>
                             <constraint firstItem="Yzn-lY-OSO" firstAttribute="trailing" secondItem="fME-TC-ixb" secondAttribute="trailing" id="PVj-xa-GL6"/>
                             <constraint firstItem="Yzn-lY-OSO" firstAttribute="bottom" secondItem="fME-TC-ixb" secondAttribute="bottom" id="UYU-yS-afd"/>
-                            <constraint firstItem="UCT-E7-CRL" firstAttribute="top" secondItem="fME-TC-ixb" secondAttribute="top" constant="20" id="VJB-K1-zlq"/>
-                            <constraint firstItem="zNT-4s-pVJ" firstAttribute="top" secondItem="fME-TC-ixb" secondAttribute="top" id="jSR-ao-scM"/>
+                            <constraint firstItem="UCT-E7-CRL" firstAttribute="top" secondItem="fME-TC-ixb" secondAttribute="top" constant="10" id="VJB-K1-zlq"/>
+                            <constraint firstItem="UCT-E7-CRL" firstAttribute="leading" secondItem="1am-27-MWH" secondAttribute="trailing" constant="7" id="h1J-et-F7X"/>
                             <constraint firstItem="Yzn-lY-OSO" firstAttribute="leading" secondItem="fME-TC-ixb" secondAttribute="leading" id="r4y-cb-pKW"/>
                             <constraint firstItem="6Ml-JB-xQ8" firstAttribute="leading" secondItem="fME-TC-ixb" secondAttribute="leading" id="rkp-jm-ta5"/>
-                            <constraint firstItem="6Ml-JB-xQ8" firstAttribute="top" secondItem="UCT-E7-CRL" secondAttribute="bottom" constant="20" id="uTL-nO-LN9"/>
+                            <constraint firstItem="6Ml-JB-xQ8" firstAttribute="top" secondItem="UCT-E7-CRL" secondAttribute="bottom" constant="7" id="ssV-Fh-ZeU"/>
+                            <constraint firstItem="fME-TC-ixb" firstAttribute="trailing" secondItem="UCT-E7-CRL" secondAttribute="trailing" constant="10" id="z9C-FR-4Mo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="personImageView" destination="6Ml-JB-xQ8" id="g3y-nV-bNH"/>
-                        <outlet property="timerView" destination="zNT-4s-pVJ" id="1bT-BM-RAV"/>
+                        <outlet property="timeLabel" destination="UCT-E7-CRL" id="CW2-zL-Z4M"/>
+                        <outlet property="timerSlider" destination="1am-27-MWH" id="9zW-DS-uhc"/>
                         <outletCollection property="answersbutton" destination="UTY-t5-055" collectionClass="NSMutableArray" id="1d3-1q-7xk"/>
                         <outletCollection property="answersbutton" destination="XiN-ZG-foi" collectionClass="NSMutableArray" id="Pcu-Uf-O1W"/>
                         <outletCollection property="answersbutton" destination="GHJ-Er-hjd" collectionClass="NSMutableArray" id="DuI-z4-hwX"/>

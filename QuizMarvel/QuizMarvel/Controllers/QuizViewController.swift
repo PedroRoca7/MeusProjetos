@@ -7,17 +7,19 @@
 
 import UIKit
 import Kingfisher
+import SwiftUI
 
 class QuizViewController: UIViewController {
 
-    
-    
+        
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet var answersbutton: [UIButton]!
-    @IBOutlet weak var timerView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timerSlider: UISlider!
     
+    var seconds = 120
+    var timer = Timer()
     let quizManager = QuizManager()
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +30,33 @@ class QuizViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
         getNewQuiz()
         
     }
+    
+    @objc func updateTimer() {
+        seconds -= 1
+        timeLabel.text = String(seconds)
         
+        timerSlider.value = Float(seconds)
+        if seconds <= 20{
+            timerSlider.tintColor = .red
+        }
+        
+        if seconds == 0 {
+            timer.invalidate()
+            showResults()
+        }
+    }
+    
+    @IBAction func slider(_ sender: UISlider) {
+        seconds = Int(sender.value)
+        timeLabel.text = String(seconds)
+        
+    }
+    
+    
     func getNewQuiz() {
         DispatchQueue.main.async {
             self.quizManager.loadHeros(onComplete: { result in
