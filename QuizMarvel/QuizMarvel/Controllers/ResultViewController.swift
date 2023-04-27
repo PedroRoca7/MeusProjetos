@@ -7,12 +7,13 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
-
+class ResultViewController: UIViewController, UITableViewDataSource {
+    
     @IBOutlet weak var answeredLabel: UILabel!
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var wrongLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var totalCorrectAnswers: Int = 0
     var totalAnswers: Int = 0
@@ -31,6 +32,15 @@ class ResultViewController: UIViewController {
         scoreLabel.text = "\(score)%"
         
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
     
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true)

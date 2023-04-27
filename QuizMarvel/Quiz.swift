@@ -19,11 +19,23 @@ class Quiz {
     }
 
     func validadeOption(optionSelected: String) -> Bool {
+        var characters: [Character]
+        if 
+        
         let answer = optionSelected
+        
+        
+        
         return answer == correctedAnswer
     }
     
     deinit{
         print("Liberou Quiz da memoria")
     }
+}
+
+struct Character {
+    let image: String
+    let nameSelected: String
+    let nameCorrect: String
 }

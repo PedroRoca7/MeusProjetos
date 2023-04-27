@@ -35,21 +35,25 @@ class QuizViewController: UIViewController {
         buttonsView.isHidden = true
         timerSlider.isHidden = true
         timeLabel.isHidden = true
-        let loader = self.loader()
+        let loader = loader()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.stopLoader(loader: loader)
-            self.buttonsView.isHidden = false
-            self.timerSlider.isHidden = false
-            self.timeLabel.isHidden = false
+           
         }
         
-        seconds = 122
+        seconds = 10
         quizManager._totalAnswers = 0
         quizManager._totalCorrectAnswers = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
         getNewQuiz()
         
+    }
+    
+    private func showButtons() {
+        buttonsView.isHidden = false
+        timerSlider.isHidden = false
+        timeLabel.isHidden = false
     }
     
     @objc func updateTimer() {
@@ -73,20 +77,16 @@ class QuizViewController: UIViewController {
         
     }
     
-    
     func getNewQuiz() {
         DispatchQueue.main.async {
             self.quizManager.loadHeros(onComplete: { result in
                 if let result = result {
                     self.configureScreen(result)
+                    self.showButtons()
+                    
                 }
             })
         }
-       
-        
-       
-
-        
     }
     
     func configureScreen(_ result: MarvelInfo) {

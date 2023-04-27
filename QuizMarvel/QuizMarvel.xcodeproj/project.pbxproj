@@ -10,6 +10,7 @@
 		22C8F1F36BBA9ED228977916 /* Pods_QuizMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BCB89E1FA7962374CAAEBD /* Pods_QuizMarvelTests.framework */; };
 		5C9771CCA4F4DFB56A78C29C /* Pods_QuizMarvel_QuizMarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233E11FE7EEB75E224ADB96 /* Pods_QuizMarvel_QuizMarvelUITests.framework */; };
 		5CE894D36FDE8DB273623132 /* Pods_QuizMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2761970C8A8480E2E929A7 /* Pods_QuizMarvel.framework */; };
+		CE44AE8529FAC43E0083EC47 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE44AE8429FAC43E0083EC47 /* CharactersTableViewCell.swift */; };
 		CE5FCCA929F96B8000F38575 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FCCA829F96B8000F38575 /* Extensions.swift */; };
 		CE65E6CE29F067D3003ADBA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E6CD29F067D3003ADBA3 /* AppDelegate.swift */; };
 		CE65E6D029F067D3003ADBA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65E6CF29F067D3003ADBA3 /* SceneDelegate.swift */; };
@@ -54,6 +55,7 @@
 		B38AB7B9C6687F23D78CD9CE /* Pods-QuizMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-QuizMarvelTests/Pods-QuizMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B583CF89B1620CDB16EF1115 /* Pods-QuizMarvel-QuizMarvelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizMarvel-QuizMarvelUITests.debug.xcconfig"; path = "Target Support Files/Pods-QuizMarvel-QuizMarvelUITests/Pods-QuizMarvel-QuizMarvelUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5BCB89E1FA7962374CAAEBD /* Pods_QuizMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE44AE8429FAC43E0083EC47 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 		CE5FCCA829F96B8000F38575 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE65E6CA29F067D3003ADBA3 /* QuizMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE65E6CD29F067D3003ADBA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				CE65E70C29F098A4003ADBA3 /* Quiz.swift */,
 				CE65E70429F0817F003ADBA3 /* MarvelClasses.swift */,
 				CE5FCCA829F96B8000F38575 /* Extensions.swift */,
+				CE44AE8429FAC43E0083EC47 /* CharactersTableViewCell.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -461,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE65E70529F0817F003ADBA3 /* MarvelClasses.swift in Sources */,
+				CE44AE8529FAC43E0083EC47 /* CharactersTableViewCell.swift in Sources */,
 				CE65E70929F09080003ADBA3 /* QuizViewController.swift in Sources */,
 				CE65E6D229F067D3003ADBA3 /* ViewController.swift in Sources */,
 				CE65E70B29F090B8003ADBA3 /* ResultViewController.swift in Sources */,
