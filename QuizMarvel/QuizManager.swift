@@ -9,8 +9,6 @@ import Foundation
 
 class QuizManager {
     
-    var heroes: [Hero] = []
-    
     let namesPerson: [String] = ["3-D Man",
                                  "A-Bomb (HAS)",
                                  "A.I.M.",
@@ -1776,6 +1774,9 @@ class QuizManager {
     private var name: String = ""
     private let urlTest: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
     private var thumbnail: String = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+    var characters: [Character] = []
+    var char: Character!
+    var heroes: [Hero] = []
     
     var totalAnswers: Int {
         return _totalAnswers
@@ -1818,6 +1819,7 @@ class QuizManager {
  
     private func refreshQuiz() {
         options.removeAll()
+        
         var randomIndex1 = Int(arc4random_uniform(UInt32(namesPerson.count)))
 
         if namesPerson[randomIndex1] == name {
@@ -1856,7 +1858,15 @@ class QuizManager {
         _totalAnswers += 1
         if quiz.validadeOption(optionSelected: name) {
             _totalCorrectAnswers += 1
+        } else {
+            let char = Character.init(thumbnail: self.thumbnail,nameCorrect: self.name, nameSelected: name)
+            characters.append(char)
         }
     }
 }
 
+struct Character {
+    var thumbnail: String
+    var nameCorrect: String
+    var nameSelected: String
+}

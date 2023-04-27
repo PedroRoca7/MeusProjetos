@@ -24,6 +24,7 @@ class QuizViewController: UIViewController {
     var timer = Timer()
     let quizManager = QuizManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,15 +35,18 @@ class QuizViewController: UIViewController {
         super.viewWillAppear(animated)
         buttonsView.isHidden = true
         timerSlider.isHidden = true
+        timerSlider.tintColor = .green
         timeLabel.isHidden = true
-        let loader = loader()
         
+        quizManager.characters.removeAll()
+        
+        let loader = loader()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.stopLoader(loader: loader)
            
         }
         
-        seconds = 10
+        seconds = 30
         quizManager._totalAnswers = 0
         quizManager._totalCorrectAnswers = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
@@ -68,6 +72,7 @@ class QuizViewController: UIViewController {
         if seconds == 0 {
             timer.invalidate()
             showResults()
+            
         }
     }
     
@@ -112,6 +117,7 @@ class QuizViewController: UIViewController {
         if let resultViewcontroller = segue.destination as? ResultViewController{
             resultViewcontroller.totalAnswers = quizManager.totalAnswers
             resultViewcontroller.totalCorrectAnswers = quizManager.totalCorrectAnswers
+            resultViewcontroller.chars = quizManager.characters
         }
     }
     

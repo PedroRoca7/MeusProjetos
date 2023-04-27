@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CharactersTableViewCell: UITableViewCell {
 
@@ -13,18 +14,31 @@ class CharactersTableViewCell: UITableViewCell {
     @IBOutlet weak var nameCharacterCorrectLabel: UILabel!
     @IBOutlet weak var nameCharacterSelectedLabel: UILabel!
     
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-
+    
+    //prepara a celula para apresentar na tableView
+    func prepareCell(with charater: Character) {
+        nameCharacterCorrectLabel.text = charater.nameCorrect
+        nameCharacterSelectedLabel.text = charater.nameSelected
+        if let url = URL(string: charater.thumbnail) {
+            thumbImageView.kf.indicatorType = .activity
+            thumbImageView.kf.setImage(with: url)
+        } else {
+            thumbImageView.image = nil
+        }
+        
+//        //deixa a imagem circular (garantir que o clip to bounds esteja marcado )
+//        thumbImageView.layer.cornerRadius = thumbImageView.frame.size.height/2
+//        thumbImageView.layer.borderColor = UIColor.red.cgColor
+//        thumbImageView.layer.borderWidth = 2
+    }
+    
 }

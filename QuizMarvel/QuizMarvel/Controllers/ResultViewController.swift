@@ -15,14 +15,17 @@ class ResultViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var chars: [Character] = []
     var totalCorrectAnswers: Int = 0
     var totalAnswers: Int = 0
     var score: Int = 0
-    var quiz: QuizManager!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.dataSource = self
+        
         answeredLabel.text = "Perguntas respondidas: \(totalAnswers)"
         correctLabel.text = "Respostas corretas: \(totalCorrectAnswers)"
         wrongLabel.text = "Respostas erradas: \(totalAnswers - totalCorrectAnswers)"
@@ -30,15 +33,22 @@ class ResultViewController: UIViewController, UITableViewDataSource {
             score = (totalCorrectAnswers*100/totalAnswers)
         }
         scoreLabel.text = "\(score)%"
+        print(chars)
+       
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return chars.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CharactersTableViewCell
+
+        let character = chars[indexPath.row]
+        cell.prepareCell(with: character)
+
+        return cell
     }
     
     
