@@ -21,10 +21,9 @@ class QuizViewController: UIViewController {
     var seconds = 120
     var timer = Timer()
     let quizManager = QuizManager()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
 
@@ -35,19 +34,17 @@ class QuizViewController: UIViewController {
         quizManager.characters.removeAll()
         
         let loader = loader()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.stopLoader(loader: loader)
-           
-        }
+
         resetTimeResults()
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
-        getNewQuiz()
+        
+        getNewQuiz(loader)
         
     }
     
     private func resetTimeResults() {
-        seconds = 30
+        seconds = 120
         quizManager._totalAnswers = 0
         quizManager._totalCorrectAnswers = 0
     }
@@ -74,7 +71,7 @@ class QuizViewController: UIViewController {
             timerSlider.tintColor = .red
         }
         
-        if seconds == 0 {
+        if seconds <= 0 {
             timer.invalidate()
             showResults()
             
@@ -87,14 +84,15 @@ class QuizViewController: UIViewController {
         
     }
     
-   private  func getNewQuiz() {
-        DispatchQueue.main.async {
+    private  func getNewQuiz(_ loader: UIAlertController ) {
+       DispatchQueue.main.async {
             self.quizManager.loadHeros(onComplete: { [weak self] result in
                 guard let self = self else { return }
+                
                 if let result = result {
                     self.configureScreen(result)
                     self.showButtons()
-                    
+                    self.stopLoader(loader: loader)
                 }
             })
         }
@@ -128,9 +126,10 @@ class QuizViewController: UIViewController {
     }
     
     @IBAction func selectAnswer(_ sender: UIButton) {
+        let loader = loader()
         if let buttonSelected = sender.currentTitle{
         quizManager.validadeAnswer(name: buttonSelected)
-        getNewQuiz()
+        getNewQuiz(loader)
         }
     }
 }
