@@ -84,7 +84,7 @@ class QuizViewController: UIViewController {
         
     }
     
-    private  func getNewQuiz(_ loader: UIAlertController ) {
+    private func getNewQuiz(_ loader: UIAlertController ) {
        DispatchQueue.main.async {
             self.quizManager.loadHeros(onComplete: { [weak self] result in
                 guard let self = self else { return }
