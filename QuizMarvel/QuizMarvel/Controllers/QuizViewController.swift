@@ -18,12 +18,9 @@ class QuizViewController: UIViewController {
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var buttonsView: UIView!
     
-    
-    
     var seconds = 120
     var timer = Timer()
     let quizManager = QuizManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +30,7 @@ class QuizViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        buttonsView.isHidden = true
-        timerSlider.isHidden = true
-        timerSlider.tintColor = .green
-        timeLabel.isHidden = true
+        hiddenButtons()
         
         quizManager.characters.removeAll()
         
@@ -45,13 +39,24 @@ class QuizViewController: UIViewController {
             self.stopLoader(loader: loader)
            
         }
+        resetTimeResults()
         
-        seconds = 30
-        quizManager._totalAnswers = 0
-        quizManager._totalCorrectAnswers = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(QuizViewController.updateTimer), userInfo: nil, repeats: true)
         getNewQuiz()
         
+    }
+    
+    private func resetTimeResults() {
+        seconds = 30
+        quizManager._totalAnswers = 0
+        quizManager._totalCorrectAnswers = 0
+    }
+    
+    private func hiddenButtons() {
+        buttonsView.isHidden = true
+        timerSlider.isHidden = true
+        timerSlider.tintColor = .green
+        timeLabel.isHidden = true
     }
     
     private func showButtons() {
@@ -60,7 +65,7 @@ class QuizViewController: UIViewController {
         timeLabel.isHidden = false
     }
     
-    @objc func updateTimer() {
+    @objc private func updateTimer() {
         seconds -= 1
         timeLabel.text = String(seconds)
         
@@ -76,15 +81,16 @@ class QuizViewController: UIViewController {
         }
     }
     
-    @IBAction func slider(_ sender: UISlider) {
+    @IBAction private func slider(_ sender: UISlider) {
         seconds = Int(sender.value)
         timeLabel.text = String(seconds)
         
     }
     
-    func getNewQuiz() {
+   private  func getNewQuiz() {
         DispatchQueue.main.async {
-            self.quizManager.loadHeros(onComplete: { result in
+            self.quizManager.loadHeros(onComplete: { [weak self] result in
+                guard let self = self else { return }
                 if let result = result {
                     self.configureScreen(result)
                     self.showButtons()
@@ -94,7 +100,7 @@ class QuizViewController: UIViewController {
         }
     }
     
-    func configureScreen(_ result: MarvelInfo) {
+    private func configureScreen(_ result: MarvelInfo) {
         guard let thumb = result.data.results.first?.thumbnail.url else { return }
         if let url = URL(string: thumb) {
             personImageView.kf.indicatorType = .activity
@@ -109,7 +115,7 @@ class QuizViewController: UIViewController {
         }
     }
     
-    func showResults() {
+    private func showResults() {
         performSegue(withIdentifier: "resultSegue", sender: nil)
     }
     

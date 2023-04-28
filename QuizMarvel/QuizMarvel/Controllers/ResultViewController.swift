@@ -35,6 +35,9 @@ class ResultViewController: UIViewController, UITableViewDataSource {
         scoreLabel.text = "\(score)%"
         print(chars)
        
+        if chars.count == 0 {
+            tableView.isHidden = true
+        }
         
     }
     

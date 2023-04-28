@@ -34,11 +34,5 @@ class CharactersTableViewCell: UITableViewCell {
         } else {
             thumbImageView.image = nil
         }
-        
-//        //deixa a imagem circular (garantir que o clip to bounds esteja marcado )
-//        thumbImageView.layer.cornerRadius = thumbImageView.frame.size.height/2
-//        thumbImageView.layer.borderColor = UIColor.red.cgColor
-//        thumbImageView.layer.borderWidth = 2
     }
-    
 }

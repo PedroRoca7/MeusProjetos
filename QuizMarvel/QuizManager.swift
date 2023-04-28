@@ -1766,7 +1766,6 @@ class QuizManager {
                                  "Zzzax",
     ]
     
-    
     var quiz: Quiz!
     var _totalAnswers = 0
     var _totalCorrectAnswers = 0
@@ -1789,7 +1788,9 @@ class QuizManager {
         
             let numberSort = Int(arc4random_uniform(UInt32(namesPerson.count)))
             let nameSort = namesPerson[numberSort]
-            MarvelAPI.loadHeros(name: nameSort) { result in
+            MarvelAPI.loadHeros(name: nameSort) { [weak self] result in
+                guard let self = self else { return }
+                
                 if let result = result {
                     self.heroes = result.data.results
                     guard let name = result.data.results.first?.name,let thumbnail = result.data.results.first?.thumbnail.url else { return }
@@ -1813,8 +1814,6 @@ class QuizManager {
                     }
                 }
             }
-        
-       
     }
  
     private func refreshQuiz() {
@@ -1836,7 +1835,6 @@ class QuizManager {
             randomIndex3 = Int(arc4random_uniform(UInt32(namesPerson.count)))
         }
 
-       
         options.append(namesPerson[randomIndex1])
         options.append(namesPerson[randomIndex2])
         options.append(namesPerson[randomIndex3])
@@ -1847,12 +1845,10 @@ class QuizManager {
         quiz = Quiz.init(image: thumbnail, options: options, correctedAnswer: name)
     }
 
-    
-     private func validadeImageNotFound() -> Bool {
+    private func validadeImageNotFound() -> Bool {
         
         return thumbnail == urlTest
     }
-    
     
     func validadeAnswer(name: String) {
         _totalAnswers += 1
