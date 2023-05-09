@@ -12,8 +12,10 @@ import Alamofire
 class MarvelAPI{
     
     static private let basePath = "https://gateway.marvel.com/v1/public/characters?"
-    static private let privateKey = "ad002ee52218cea9bd4ed12dcb88788fff9815da"
-    static private let publicKey = "d3871eed0bc3a17f06b5df66bd515223"
+    //. Coloque sua chave privada aqui.
+    static private let privateKey = ""
+    //. Coloque sua chave publica aqui.
+    static private let publicKey = ""
     static private let limit = 1
     
     class func loadHeros(name: String, onComplete: @escaping (MarvelInfo?) -> Void) {
